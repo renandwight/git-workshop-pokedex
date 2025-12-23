@@ -32,10 +32,4 @@ class A_pokemon(APIView):
             pokemon = Pokemon.objects.get(name = id.title()) # <== We only accept names in Title format so lets use the `title` method to ensure we have the user input in the correct format
         return Response(PokemonSerializer(pokemon).data) #<=== Finally lets use the PokemonSerializer to return our Pokemon in the correct Format for Front End frameworks
 
-# Create a view that utilizes APIView to inherit DRF's built in functionality
-class All_moves(APIView):
-    # establish a get method that will be triggered by GET requests
-    def get(self, request):
-        # utilize your ModelSerializer to serialize your queryset and return a proper response with DRF's Response
-        moves = MoveSerializer(Move.objects.all(), many=True)
-        return Response(moves.data)
+
