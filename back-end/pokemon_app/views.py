@@ -1,10 +1,11 @@
 #pokemon_app/views.py
-from .models import Pokemon #imports the Pokemon model
-from .serializers import PokemonSerializer #imports the PokemonSerializer
+from .models import Pokemon, Move #imports the Pokemon model
+from .serializers import PokemonSerializer, MoveSerializer  #imports the PokemonSerializer
 from django.http import JsonResponse # Our responses will now be returned in JSON so we should utilize a JsonResponse
 # Import both APIView and Response from DRF
 from rest_framework.views import APIView
 from rest_framework.response import Response
+
 # Create your views here.
 
 # def all_pokemon(request):
@@ -30,3 +31,5 @@ class A_pokemon(APIView):
         else:
             pokemon = Pokemon.objects.get(name = id.title()) # <== We only accept names in Title format so lets use the `title` method to ensure we have the user input in the correct format
         return Response(PokemonSerializer(pokemon).data) #<=== Finally lets use the PokemonSerializer to return our Pokemon in the correct Format for Front End frameworks
+
+
