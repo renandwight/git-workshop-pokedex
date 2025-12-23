@@ -25,3 +25,10 @@ def validate_name(name):
         return name
     else:
         raise ValidationError(error_message, params={ 'name' : name })
+
+def validate_move_name(name):
+    regex = r"^[a-zA-Z]+ ?[a-zA-Z]+$"
+    good_name = re.match(regex, name)
+    if good_name:
+        return name
+    raise ValidationError("Improper Format")
