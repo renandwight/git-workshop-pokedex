@@ -10,4 +10,5 @@ urlpatterns = [
     # Currently only takes GET requests
     path('', All_pokemon.as_view(), name='all_pokemon'),
     path('<int_or_str:id>/', A_pokemon.as_view(), name='a_pokemon')
+    path("<str:name>/", A_move.as_view(), name="a_move"),
 ]
