@@ -30,8 +30,3 @@ class A_pokemon(APIView):
         else:
             pokemon = Pokemon.objects.get(name = id.title()) # <== We only accept names in Title format so lets use the `title` method to ensure we have the user input in the correct format
         return Response(PokemonSerializer(pokemon).data) #<=== Finally lets use the PokemonSerializer to return our Pokemon in the correct Format for Front End frameworks
-
-class A_move(APIView):
-    def get(self, request, name):
-        move = Move.objects.get(name = name.title())
-        return Response(MoveSerializer(move).data)
