@@ -1,9 +1,8 @@
 from django.shortcuts import render
-from .serializers import MoveSerializer, Move
+from .serializers import MoveSerializer
+from .models import Move
+from rest_framework.views import APIView
 from rest_framework.response import Response
-
-
-
 class All_moves(APIView):
     # establish a get method that will be triggered by GET requests
     def get(self, request):
