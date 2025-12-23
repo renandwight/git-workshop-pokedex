@@ -4,6 +4,7 @@ from django.utils import timezone
 # import built-in Django Validators
 from django.core import validators as v
 from .validators import validate_name
+from moves_app.models import Move
 
 # Create your models here.
 class Pokemon(models.Model):
@@ -23,8 +24,7 @@ class Pokemon(models.Model):
     description = models.TextField(default="Unknown", validators=[v.MinLengthValidator(7), v.MaxLengthValidator(150)])
     # Boolean field is already ensuring to only take in either True or False
     captured = models.BooleanField(default = False)
-
-    #Adding moves for pokemon
+    #Moves field 
     moves = models.ManyToManyField(Move, related_name="pokemon")
     # DUNDER METHOD
     def __str__(self):

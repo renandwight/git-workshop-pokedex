@@ -1,6 +1,6 @@
 #pokemon_app/views.py
-from .models import Pokemon, Move #imports the Pokemon model
-from .serializers import PokemonSerializer, MoveSerializer  #imports the PokemonSerializer
+from .models import Pokemon #imports the Pokemon model
+from .serializers import PokemonSerializer #imports the PokemonSerializer
 from django.http import JsonResponse # Our responses will now be returned in JSON so we should utilize a JsonResponse
 # Import both APIView and Response from DRF
 from rest_framework.views import APIView
