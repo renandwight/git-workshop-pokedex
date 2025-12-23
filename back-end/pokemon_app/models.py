@@ -6,6 +6,7 @@ from django.core import validators as v
 from .validators import validate_name
 from moves_app.models import Move
 
+
 # Create your models here.
 class Pokemon(models.Model):
     # CharField is a character field and has a default max length of 255 characters
